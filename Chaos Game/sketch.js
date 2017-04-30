@@ -14,7 +14,7 @@ var pos;
 var iteration;
 var depth;
 function setup() {
-  createCanvas(600, 600);
+  createCanvas(780, 640);
   fill(255);
   stroke(255);
 
@@ -31,7 +31,7 @@ function generate() {
     document.getElementsByName('orderBox')[0].value = '';
     document.getElementsByName('ratioBox')[0].value = '';
 
-    points = ngon(order,1500/order,100,100);
+    points = ngon(order,1500/order,200,100);
     fill(255);
     for(var point in points) {
       ellipse(point.x, point.y, 5, 5);
@@ -46,21 +46,20 @@ function newIteration() {
   iteration++;
   //console.log("Starting new iteration: "+iteration);
   // Starting vertex vertex
-  var i = round(random(order-1));
+  var i = int(random(order));
   // Assign position to starting vertex
   pos = points[i];
 
   // Target Vertex
-  var j = round(random(order-1));
+  var j = int(random(order));
   current = points[i];
 
   depth = 1;
 }
 
 function draw() {
-  var rand = random(order); // Select target
   while(depth < 20) {
-    var i = round(random(order-1)); // Choose target index
+    var i = int(random(order)); // Choose target index
     current = points[i];
     var x = (current.x + pos.x) * ratio;
     var y = (current.y + pos.y) * ratio;
@@ -74,9 +73,9 @@ function draw() {
 function ngon(n, r, x, y) {
   var points = [];
   for(var i = 0; i < n; i++) {
-    var x = r * cos((TWO_PI * i)/n) + x;
-    var y = r * sin((TWO_PI * i)/n) + y;
-    point(x,y);
+    var x = r * cos((TWO_PI * i+1)/n) + x;
+    var y = r * sin((TWO_PI * i+1)/n) + y;
+    ellipse(x,y,5,5);
     points.push(createVector(x, y));
   }
   return points;
