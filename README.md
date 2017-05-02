@@ -10,8 +10,6 @@ This repository is going to be a place for projects I have worked/am working on.
 ## Chaos Game
 This is my version of Chaos Game written in Javascript using the p5js and dom libraries. 
 
-**[[Demo](http://melvidge.com/chaos_game/)]**
-
 # How to use:
 * There are two textboxes: one for the number of vertices in the n-gon to bound the algorithm and another for the ratio (the distance travelled from the current position to the target).
 * The generate button uses the two textbox inputs to run the Chaos Game algorithm. The program doesn't currently have error prevention so please inputs are of a valid datatype.
